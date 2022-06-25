@@ -26,3 +26,31 @@ C:\Users\willi\Desktop\apiToDo\apiToDo\obj\Debug\net5.0\refint\apiToDo.dll
 C:\Users\willi\Desktop\apiToDo\apiToDo\obj\Debug\net5.0\apiToDo.pdb
 C:\Users\willi\Desktop\apiToDo\apiToDo\obj\Debug\net5.0\apiToDo.genruntimeconfig.cache
 C:\Users\willi\Desktop\apiToDo\apiToDo\obj\Debug\net5.0\ref\apiToDo.dll
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\bin\Debug\net5.0\appsettings.json
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\bin\Debug\net5.0\apiToDo.exe
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\bin\Debug\net5.0\apiToDo.deps.json
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\bin\Debug\net5.0\apiToDo.runtimeconfig.json
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\bin\Debug\net5.0\apiToDo.runtimeconfig.dev.json
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\bin\Debug\net5.0\apiToDo.dll
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\bin\Debug\net5.0\apiToDo.pdb
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\apiToDo.csproj.AssemblyReference.cache
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\apiToDo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\apiToDo.AssemblyInfoInputs.cache
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\apiToDo.AssemblyInfo.cs
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\apiToDo.csproj.CoreCompileInputs.cache
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\apiToDo.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\apiToDo.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\scopedcss\bundle\apiToDo.styles.css
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\staticwebassets\apiToDo.StaticWebAssets.Manifest.cache
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\apiToDo.RazorTargetAssemblyInfo.cache
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\apiToDo.csproj.CopyComplete
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\apiToDo.dll
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\refint\apiToDo.dll
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\apiToDo.pdb
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\apiToDo.genruntimeconfig.cache
+C:\Users\Leandro Simeão\Source\Repos\TesteJRBackend\apiToDo\obj\Debug\net5.0\ref\apiToDo.dll

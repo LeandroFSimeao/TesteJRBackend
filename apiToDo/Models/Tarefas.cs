@@ -7,7 +7,7 @@ namespace apiToDo.Models
 {
     public class Tarefas
     {
-        public List<TarefaDTO> lstTarefas()
+        public static List<TarefaDTO> lstTarefas()
         {
             try
             {
@@ -31,7 +31,7 @@ namespace apiToDo.Models
                     DS_TAREFA = "Subir Projeto de Teste no GitHub"
                 });
 
-                return new List<TarefaDTO>();
+                return lstTarefas;
             }
             catch(Exception ex)
             {
@@ -40,11 +40,10 @@ namespace apiToDo.Models
         }
 
 
-        public void InserirTarefa(TarefaDTO Request)
+        public static void InserirTarefa(List<TarefaDTO> lstResponse, TarefaDTO Request)
         {
             try
             {
-                List<TarefaDTO> lstResponse = lstTarefas();
                 lstResponse.Add(Request);
             }
             catch(Exception ex)
@@ -52,19 +51,34 @@ namespace apiToDo.Models
                 throw ex;
             }
         }
-        public void DeletarTarefa(int ID_TAREFA)
+        // Implementando um método público e estático para excluir uma tarefa da lista, que recebe como parâmetro a lista de tarefas atual e o id da tarefa a ser excúída.
+        public static void DeletarTarefa(List<TarefaDTO> lstResponse ,int ID_TAREFA)
         {
+            //iniciando a estrutura de tratamento de erros.
             try
             {
-                List<TarefaDTO> lstResponse = lstTarefas();
-                var Tarefa = lstResponse.FirstOrDefault(x => x.ID_TAREFA == ID_TAREFA);
-                TarefaDTO Tarefa2 = lstResponse.Where(x=> x.ID_TAREFA == Tarefa.ID_TAREFA).FirstOrDefault();
+                // Essa linha estava fazendo o mesmo do que a linha seguinte.
+                //var Tarefa = lstResponse.FirstOrDefault(x => x.ID_TAREFA == ID_TAREFA);
+                // Cria um objeto do tipo tarefa, recebendo um objeto da lista de tarefas que possui o identificador igual ao passado por parâmetro
+                TarefaDTO Tarefa2 = lstResponse.FirstOrDefault(x => x.ID_TAREFA == ID_TAREFA);
+                //Remove o objeto obtido na linha anterior da lista
+                if (Tarefa2 == null)
+                {
+                    throw new Exception("Não foi póssível deletar a tarefa ou não foi encontrada");
+                }
                 lstResponse.Remove(Tarefa2);
             }
-            catch(Exception ex)
+            // Captura o possível erro ocorrido dentro do try, para tratamento
+            catch(Exception)
             {
-                throw ex;
+                // Exibe uma mensagem de erro personalizada para o usuário
+                throw new Exception("Não foi póssível deletar a tarefa ou não foi encontrada");
             }
+        }
+
+        private static void StatusCode(int v, object value)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -3,6 +3,7 @@ using apiToDo.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 
 namespace apiToDo.Controllers
 {
@@ -10,14 +11,15 @@ namespace apiToDo.Controllers
     [Route("[controller]")]
     public class TarefasController : ControllerBase
     {
-        [Authorize]
-        [HttpPost("lstTarefas")]
-        public ActionResult lstTarefas()
+        private static List<TarefaDTO> lstTarefas = Tarefas.lstTarefas();
+
+
+        [HttpGet]
+        public ActionResult RecuperarTarefas()
         {
             try
             {
-              
-                return StatusCode(200);
+                return Ok(lstTarefas);
             }
 
             catch (Exception ex)
@@ -26,14 +28,13 @@ namespace apiToDo.Controllers
             }
         }
 
-        [HttpPost("InserirTarefas")]
+        [HttpPost]
         public ActionResult InserirTarefas([FromBody] TarefaDTO Request)
         {
             try
             {
-
-                return StatusCode(200);
-
+                Tarefas.InserirTarefa(lstTarefas, Request);
+                return RecuperarTarefas();
 
             }
 
@@ -43,18 +44,18 @@ namespace apiToDo.Controllers
             }
         }
 
-        [HttpGet("DeletarTarefa")]
-        public ActionResult DeleteTask([FromQuery] int ID_TAREFA)
+        [HttpDelete("{id}")]
+        public ActionResult DeletarTarefa(int id)
         {
             try
             {
-
-                return StatusCode(200);
+                Tarefas.DeletarTarefa(lstTarefas, id);
+                return RecuperarTarefas();
             }
 
             catch (Exception ex)
             {
-                return StatusCode(400, new { msg = $"Ocorreu um erro em sua API {ex.Message}" });
+                return StatusCode(404, new { msg = $"O Id informado não foi encontrado {ex.Message}" });
             }
         }
     }
