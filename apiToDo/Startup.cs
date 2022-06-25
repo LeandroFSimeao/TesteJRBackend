@@ -30,6 +30,7 @@ namespace apiToDo
 
             services.AddControllers();
 
+            //Adicionando no scopo da startup a inicialização da injeção de dependência
             services.AddRegistrationDependencies();
 
             services.AddSwaggerGen(c =>

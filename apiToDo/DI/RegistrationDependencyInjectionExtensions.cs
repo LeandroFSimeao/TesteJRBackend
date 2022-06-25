@@ -8,7 +8,7 @@ namespace apiToDo.DI
 {
     public static class RegistrationDependencyInjectionExtensions
     {
-
+        //Configuração da injeção de dependência do repository e service utilizando o parâmetro IServiceCollection
         public static void AddRegistrationDependencies(this IServiceCollection services)
         {
             RegisterRepositories(services);

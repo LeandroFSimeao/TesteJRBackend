@@ -8,7 +8,7 @@ namespace apiToDo.Services
 {
     public class TarefasService : ITarefasService
     {
-
+        //Para inicialização de variáveis privadas utiliza-se a nomeclatura "_" para diferenciar das públicas
         private readonly ITarefasRepository _tarefasRepository;
 
         public TarefasService(ITarefasRepository tarefasRepository)
@@ -18,6 +18,8 @@ namespace apiToDo.Services
 
         public IList<TarefasModel> ObterTarefas()
         {
+            //Obter a lista de tarefas no repositório e retonar
+            //Utilização do Ilist para evitar excesso de alocação de mémoria
             IList<TarefasModel> listaTarefas = _tarefasRepository.ObterTarefas();
             return listaTarefas;
         }
@@ -26,6 +28,7 @@ namespace apiToDo.Services
         {
             try
             {
+                //Chama o método inserir na classe TarefaRepository
                 _tarefasRepository.InserirTarefa(tarefa);
             }
             catch
@@ -38,6 +41,7 @@ namespace apiToDo.Services
         {
             try
             {
+                //Chama o método deletar na classe TarefaRepository
                 _tarefasRepository.DeletarTarefa(idTarefa);
             }
             catch (Exception)
@@ -50,6 +54,7 @@ namespace apiToDo.Services
         {
             try
             {
+                //Chama o método Atualizar na classe TarefaRepository
                 _tarefasRepository.AtualizarTarefa(request);
             }
             catch
@@ -60,7 +65,9 @@ namespace apiToDo.Services
 
         public TarefasModel RecuperaTarefaPorId(int idTarefa)
         {
+            //Chama o método Obter na classe TarefaRepository
             TarefasModel tarefa = _tarefasRepository.ObterTarefaPorId(idTarefa);
+            //Caso não encontre o Id ele retorna um exception
             if (tarefa == null)
             {
                 throw new Exception("Não foi possível obter a tarefa");
