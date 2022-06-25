@@ -28,12 +28,27 @@ namespace apiToDo.Controllers
             }
         }
 
+        [HttpGet("{id}")]
+        public ActionResult RecuperarTarefasPorId(int id)
+        {
+            try
+            {
+                TarefaDTO tarefa = Tarefas.RecuperaTarefaPorId(lstTarefas, id);
+                return Ok(tarefa);
+            }
+
+            catch (Exception ex)
+            {
+                return StatusCode(400, new { msg = $"Ocorreu um erro em sua API {ex.Message}" });
+            }
+        }
+
         [HttpPost]
         public ActionResult InserirTarefas([FromBody] TarefaDTO Request)
         {
             try
             {
-                Tarefas.InserirTarefa(lstTarefas, Request);
+                Tarefas.InsereTarefa(lstTarefas, Request);
                 return RecuperarTarefas();
 
             }
@@ -49,13 +64,28 @@ namespace apiToDo.Controllers
         {
             try
             {
-                Tarefas.DeletarTarefa(lstTarefas, id);
+                Tarefas.DeletaTarefa(lstTarefas, id);
                 return RecuperarTarefas();
             }
 
             catch (Exception ex)
             {
                 return StatusCode(404, new { msg = $"O Id informado não foi encontrado {ex.Message}" });
+            }
+        }
+        [HttpPut]
+        public ActionResult AtualizarTarefa([FromBody] TarefaDTO Request)
+        {
+            try
+            {
+                Tarefas.AtualizaTarefa(lstTarefas, Request);
+                return RecuperarTarefas();
+
+            }
+
+            catch (Exception ex)
+            {
+                return StatusCode(400, new { msg = $"Ocorreu um erro em sua API {ex.Message}" });
             }
         }
     }

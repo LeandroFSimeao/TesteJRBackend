@@ -40,7 +40,7 @@ namespace apiToDo.Models
         }
 
 
-        public static void InserirTarefa(List<TarefaDTO> lstResponse, TarefaDTO Request)
+        public static void InsereTarefa(List<TarefaDTO> lstResponse, TarefaDTO Request)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace apiToDo.Models
             }
         }
         // Implementando um método público e estático para excluir uma tarefa da lista, que recebe como parâmetro a lista de tarefas atual e o id da tarefa a ser excúída.
-        public static void DeletarTarefa(List<TarefaDTO> lstResponse ,int ID_TAREFA)
+        public static void DeletaTarefa(List<TarefaDTO> lstResponse ,int ID_TAREFA)
         {
             //iniciando a estrutura de tratamento de erros.
             try
@@ -64,21 +64,52 @@ namespace apiToDo.Models
                 //Remove o objeto obtido na linha anterior da lista
                 if (Tarefa2 == null)
                 {
-                    throw new Exception("Não foi póssível deletar a tarefa ou não foi encontrada");
+                    // Exibe uma mensagem de erro personalizada para o usuário
+                    throw new Exception("Não foi póssível encontrar a tarefa");
                 }
                 lstResponse.Remove(Tarefa2);
             }
             // Captura o possível erro ocorrido dentro do try, para tratamento
             catch(Exception)
             {
-                // Exibe uma mensagem de erro personalizada para o usuário
-                throw new Exception("Não foi póssível deletar a tarefa ou não foi encontrada");
+                
+                throw new Exception("Não foi póssível deletar a tarefa");
             }
         }
 
-        private static void StatusCode(int v, object value)
+        public static void AtualizaTarefa(List<TarefaDTO> lstResponse, TarefaDTO Request)
         {
-            throw new NotImplementedException();
+            try
+            {
+                TarefaDTO Tarefa = lstResponse.FirstOrDefault(x => x.ID_TAREFA == Request.ID_TAREFA);
+                if (Tarefa == null)
+                {
+                    throw new Exception("Não foi possível encontrar a tarefa");
+                }
+                Tarefa.DS_TAREFA = Request.DS_TAREFA;
+            }
+            catch
+            {
+                throw new Exception("Não foi póssível atualizar a tarefa");
+            }
         }
+
+        public static TarefaDTO RecuperaTarefaPorId(List<TarefaDTO> lstResponse, int ID_TAREFA)
+        {
+            try
+            {
+                TarefaDTO Tarefa = lstResponse.FirstOrDefault(x => x.ID_TAREFA == ID_TAREFA);
+                if (Tarefa == null)
+                {
+                    throw new Exception("Não foi possível encontrar a tarefa");
+                }
+                return Tarefa;
+            }
+            catch
+            {
+                throw new Exception("Não foi póssível encontrar a tarefa");
+            }
+        }
+
     }
 }
