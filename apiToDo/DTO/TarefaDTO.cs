@@ -2,8 +2,9 @@
 {
     public class TarefaDTO
     {
-        public int ID_TAREFA { get; set; }
-        public string DS_TAREFA { get; set; }
+        //Conforme os métodos de padrão de projetos, vamos respeitar o padrão Pascal Case.
+        public int IdTarefa { get; set; }
+        public string DsTarefa { get; set; }
 
     }
 }

@@ -15,20 +15,20 @@ namespace apiToDo.Models
 
                 lstTarefas.Add(new TarefaDTO
                 {
-                    ID_TAREFA = 1,
-                    DS_TAREFA = "Fazer Compras"
+                    IdTarefa = 1,
+                    DsTarefa = "Fazer Compras"
                 });
 
                 lstTarefas.Add(new TarefaDTO
                 {
-                    ID_TAREFA = 2,
-                    DS_TAREFA = "Fazer Atividad Faculdade"
+                    IdTarefa = 2,
+                    DsTarefa = "Fazer Atividad Faculdade"
                 });
 
                 lstTarefas.Add(new TarefaDTO
                 {
-                    ID_TAREFA = 3,
-                    DS_TAREFA = "Subir Projeto de Teste no GitHub"
+                    IdTarefa = 3,
+                    DsTarefa = "Subir Projeto de Teste no GitHub"
                 });
 
                 return lstTarefas;
@@ -40,11 +40,11 @@ namespace apiToDo.Models
         }
 
 
-        public static void InsereTarefa(List<TarefaDTO> lstResponse, TarefaDTO Request)
+        public static void InsereTarefa(List<TarefaDTO> lstResponse, TarefaDTO request)
         {
             try
             {
-                lstResponse.Add(Request);
+                lstResponse.Add(request);
             }
             catch(Exception ex)
             {
@@ -52,7 +52,7 @@ namespace apiToDo.Models
             }
         }
         // Implementando um método público e estático para excluir uma tarefa da lista, que recebe como parâmetro a lista de tarefas atual e o id da tarefa a ser excúída.
-        public static void DeletaTarefa(List<TarefaDTO> lstResponse ,int ID_TAREFA)
+        public static void DeletaTarefa(List<TarefaDTO> lstResponse ,int IdTarefa)
         {
             //iniciando a estrutura de tratamento de erros.
             try
@@ -60,7 +60,7 @@ namespace apiToDo.Models
                 // Essa linha estava fazendo o mesmo do que a linha seguinte.
                 //var Tarefa = lstResponse.FirstOrDefault(x => x.ID_TAREFA == ID_TAREFA);
                 // Cria um objeto do tipo tarefa, recebendo um objeto da lista de tarefas que possui o identificador igual ao passado por parâmetro
-                TarefaDTO Tarefa2 = lstResponse.FirstOrDefault(x => x.ID_TAREFA == ID_TAREFA);
+                TarefaDTO Tarefa2 = lstResponse.FirstOrDefault(x => x.IdTarefa == IdTarefa);
                 //Remove o objeto obtido na linha anterior da lista
                 if (Tarefa2 == null)
                 {
@@ -77,16 +77,16 @@ namespace apiToDo.Models
             }
         }
 
-        public static void AtualizaTarefa(List<TarefaDTO> lstResponse, TarefaDTO Request)
+        public static void AtualizaTarefa(List<TarefaDTO> lstResponse, TarefaDTO request)
         {
             try
             {
-                TarefaDTO Tarefa = lstResponse.FirstOrDefault(x => x.ID_TAREFA == Request.ID_TAREFA);
+                TarefaDTO Tarefa = lstResponse.FirstOrDefault(x => x.IdTarefa == request.IdTarefa);
                 if (Tarefa == null)
                 {
                     throw new Exception("Não foi possível encontrar a tarefa");
                 }
-                Tarefa.DS_TAREFA = Request.DS_TAREFA;
+                Tarefa.DsTarefa = request.DsTarefa;
             }
             catch
             {
@@ -94,11 +94,11 @@ namespace apiToDo.Models
             }
         }
 
-        public static TarefaDTO RecuperaTarefaPorId(List<TarefaDTO> lstResponse, int ID_TAREFA)
+        public static TarefaDTO RecuperaTarefaPorId(List<TarefaDTO> lstResponse, int IdTarefa)
         {
             try
             {
-                TarefaDTO Tarefa = lstResponse.FirstOrDefault(x => x.ID_TAREFA == ID_TAREFA);
+                TarefaDTO Tarefa = lstResponse.FirstOrDefault(x => x.IdTarefa == IdTarefa);
                 if (Tarefa == null)
                 {
                     throw new Exception("Não foi possível encontrar a tarefa");

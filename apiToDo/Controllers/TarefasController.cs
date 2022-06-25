@@ -11,7 +11,7 @@ namespace apiToDo.Controllers
     [Route("[controller]")]
     public class TarefasController : ControllerBase
     {
-        private static List<TarefaDTO> lstTarefas = Tarefas.lstTarefas();
+        private static readonly List<TarefaDTO> lstTarefas = Tarefas.lstTarefas();
 
 
         [HttpGet]
@@ -44,11 +44,11 @@ namespace apiToDo.Controllers
         }
 
         [HttpPost]
-        public ActionResult InserirTarefas([FromBody] TarefaDTO Request)
+        public ActionResult InserirTarefas([FromBody] TarefaDTO request)
         {
             try
             {
-                Tarefas.InsereTarefa(lstTarefas, Request);
+                Tarefas.InsereTarefa(lstTarefas, request);
                 return RecuperarTarefas();
 
             }
@@ -74,11 +74,11 @@ namespace apiToDo.Controllers
             }
         }
         [HttpPut]
-        public ActionResult AtualizarTarefa([FromBody] TarefaDTO Request)
+        public ActionResult AtualizarTarefa([FromBody] TarefaDTO request)
         {
             try
             {
-                Tarefas.AtualizaTarefa(lstTarefas, Request);
+                Tarefas.AtualizaTarefa(lstTarefas, request);
                 return RecuperarTarefas();
 
             }
