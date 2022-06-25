@@ -1,5 +1,5 @@
-﻿using apiToDo.DTO;
-using apiToDo.Models;
+﻿using apiToDo.Models;
+using apiToDo.Services.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,21 +11,18 @@ namespace apiToDo.Controllers
     [Route("[controller]")]
     public class TarefasController : ControllerBase
     {
-        private static readonly List<TarefaDTO> lstTarefas = Tarefas.lstTarefas();
+        private readonly ITarefasService _tarefasService;
 
+        public TarefasController(ITarefasService tarefasService)
+        {
+            _tarefasService = tarefasService;
+        }
 
         [HttpGet]
         public ActionResult RecuperarTarefas()
         {
-            try
-            {
-                return Ok(lstTarefas);
-            }
-
-            catch (Exception ex)
-            {
-                return StatusCode(400, new { msg = $"Ocorreu um erro em sua API {ex.Message}"});
-            }
+            IList<TarefasModel> listaTarefas = _tarefasService.ObterTarefas();
+            return Ok(listaTarefas);
         }
 
         [HttpGet("{id}")]
@@ -33,29 +30,29 @@ namespace apiToDo.Controllers
         {
             try
             {
-                TarefaDTO tarefa = Tarefas.RecuperaTarefaPorId(lstTarefas, id);
+                TarefasModel tarefa = _tarefasService.RecuperaTarefaPorId(id);
                 return Ok(tarefa);
             }
 
             catch (Exception ex)
             {
-                return StatusCode(400, new { msg = $"Ocorreu um erro em sua API {ex.Message}" });
+                return StatusCode(404, new { msg = ex.Message});
             }
         }
 
         [HttpPost]
-        public ActionResult InserirTarefas([FromBody] TarefaDTO request)
+        public ActionResult InserirTarefas([FromBody] TarefasModel request)
         {
             try
             {
-                Tarefas.InsereTarefa(lstTarefas, request);
-                return RecuperarTarefas();
-
+                _tarefasService.InserirTarefa(request.DsTarefa);
+                IList<TarefasModel> listaTarefas = _tarefasService.ObterTarefas();
+                return StatusCode(200, new { msg = "Tarefa inserida com sucessp.", tarefas = listaTarefas });
             }
 
             catch (Exception ex)
             {
-                return StatusCode(400, new { msg = $"Ocorreu um erro em sua API {ex.Message}" });
+                return StatusCode(404, new { msg = ex.Message});
             }
         }
 
@@ -64,28 +61,30 @@ namespace apiToDo.Controllers
         {
             try
             {
-                Tarefas.DeletaTarefa(lstTarefas, id);
-                return RecuperarTarefas();
+                _tarefasService.DeletarTarefa(id);
+                IList<TarefasModel> listaTarefas = _tarefasService.ObterTarefas();
+                return StatusCode(200, new { msg = "Tarefa deletada com sucesso.", tarefas = listaTarefas });
             }
 
             catch (Exception ex)
             {
-                return StatusCode(404, new { msg = $"O Id informado não foi encontrado {ex.Message}" });
+                return StatusCode(400, new { msg = ex.Message});
             }
         }
         [HttpPut]
-        public ActionResult AtualizarTarefa([FromBody] TarefaDTO request)
+        public ActionResult AtualizarTarefa([FromBody] TarefasModel request)
         {
             try
             {
-                Tarefas.AtualizaTarefa(lstTarefas, request);
-                return RecuperarTarefas();
+                _tarefasService.AtualizaTarefa(request);
+                IList<TarefasModel> listaTarefas = _tarefasService.ObterTarefas();
+                return StatusCode(200, new { msg = "Tarefa atualizada com sucesso.", tarefas = listaTarefas });
 
             }
 
             catch (Exception ex)
             {
-                return StatusCode(400, new { msg = $"Ocorreu um erro em sua API {ex.Message}" });
+                return StatusCode(404, new { msg = ex.Message});
             }
         }
     }

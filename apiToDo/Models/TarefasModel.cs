@@ -1,6 +1,10 @@
-﻿namespace apiToDo.DTO
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace apiToDo.Models
 {
-    public class TarefaDTO
+    public class TarefasModel
     {
         //Conforme os métodos de padrão de projetos, vamos respeitar o padrão Pascal Case.
         public int IdTarefa { get; set; }

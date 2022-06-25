@@ -1,3 +1,4 @@
+using apiToDo.DI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,9 @@ namespace apiToDo
         {
 
             services.AddControllers();
+
+            services.AddRegistrationDependencies();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "apiToDo", Version = "v1" });
