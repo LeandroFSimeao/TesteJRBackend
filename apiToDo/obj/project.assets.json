@@ -193,19 +193,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\willi\\.nuget\\packages\\": {}
+    "C:\\Users\\Leandro Simeão\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\willi\\Desktop\\apiToDo\\apiToDo\\apiToDo.csproj",
+      "projectUniqueName": "C:\\Users\\Leandro Simeão\\Source\\Repos\\TesteJRBackend\\apiToDo\\apiToDo.csproj",
       "projectName": "apiToDo",
-      "projectPath": "C:\\Users\\willi\\Desktop\\apiToDo\\apiToDo\\apiToDo.csproj",
-      "packagesPath": "C:\\Users\\willi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\willi\\Desktop\\apiToDo\\apiToDo\\obj\\",
+      "projectPath": "C:\\Users\\Leandro Simeão\\Source\\Repos\\TesteJRBackend\\apiToDo\\apiToDo.csproj",
+      "packagesPath": "C:\\Users\\Leandro Simeão\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Leandro Simeão\\Source\\Repos\\TesteJRBackend\\apiToDo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\willi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Leandro Simeão\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
